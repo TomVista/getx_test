@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_test/home.dart';
 import 'package:getx_test/main.dart';
 
 class OtherController extends GetxController {
@@ -21,10 +22,14 @@ class OtherPage extends StatelessWidget {
             children: [
               Text('other page ${controller.name}'),
               FlatButton(
-                  onPressed: () {
-                    Get.offAll(MyHomePage());
-                  },
-                  child: Text('offAll to my home page'))
+                onPressed: () {
+                  Get.offAll(MyHomePage(
+                    key: GlobalKey(),
+                    title: '123',
+                  ));
+                },
+                child: Text('offAll to my home page'),
+              ),
             ],
           ),
         );

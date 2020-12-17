@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:getx_test/other.dart';
+import 'package:getx_test/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,48 +30,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Spalash(),
     );
-  }
-}
-
-class HomeController extends GetxController {
-  String name = 'home';
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(
-        init: HomeController(),
-        builder: (controller) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(widget.title),
-            ),
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(controller.name),
-                  FlatButton(
-                      onPressed: () {
-                        Get.to(OtherPage());
-                      },
-                      child: Text('to other page'))
-                ],
-              ),
-            ),
-          );
-        });
   }
 }
